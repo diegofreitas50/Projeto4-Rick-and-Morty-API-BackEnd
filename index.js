@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-const route = require('./src/routes/personagem.router');
+const characterRoute = require('./src/routes/personagem.router');
+const userRoute = require('./src/routes/users.route');
 const connecteToDatabase = require('./src/database/database');
 const cors = require('cors');
 const port = process.env.PORT || 3001;
@@ -10,9 +11,9 @@ connecteToDatabase();
 
 app.use(express.json());
 app.use(cors());
-app.use('/characters', route);
-
+app.use('/characters', characterRoute);
+app.use('/users', userRoute);
 
 app.listen(port, () => {
-    console.log(`Servidor rodando na porta :${port}`);
+  console.log(`Servidor rodando na porta :${port}`);
 });
