@@ -1,7 +1,7 @@
 {
-  "name": "projeto3-rick-and-morty",
+  "name": "projeto4-rick-and-morty-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "API do Rick and Morty",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,25 +10,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/diegofreitas50/Projeto3-Rick-and-Morty.git"
+    "url": "git+https://github.com/diegofreitas50/Projeto4-Rick-and-Morty-API-BackEnd.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Diego Freitas",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/diegofreitas50/Projeto3-Rick-and-Morty/issues"
+    "url": "https://github.com/diegofreitas50/Projeto4-Rick-and-Morty-API-BackEnd/issues"
   },
-  "homepage": "https://github.com/diegofreitas50/Projeto3-Rick-and-Morty#readme",
+  "homepage": "https://github.com/diegofreitas50/Projeto4-Rick-and-Morty-API-BackEnd#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
-    "express": "^4.18.0",
+    "express": "^4.18.1",
     "i": "^0.3.7",
-    "mongoose": "^6.3.1",
+    "mongoose": "^6.3.2",
     "snpm": "^0.1.1",
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.16"
   }
 }
