@@ -1,0 +1,34 @@
+{
+  "name": "projeto3-rick-and-morty",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegofreitas50/Projeto3-Rick-and-Morty.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/diegofreitas50/Projeto3-Rick-and-Morty/issues"
+  },
+  "homepage": "https://github.com/diegofreitas50/Projeto3-Rick-and-Morty#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.18.0",
+    "i": "^0.3.7",
+    "mongoose": "^6.3.1",
+    "snpm": "^0.1.1",
+    "swagger-ui-express": "^4.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
