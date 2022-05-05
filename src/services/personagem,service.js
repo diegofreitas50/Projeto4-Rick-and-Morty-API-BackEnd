@@ -22,7 +22,7 @@ const deletePersonagemService = async (id) => {
 };
 
 const searchPersonagemService = async (nome) => {
-  return await Personagem.find({ nome: {$regex: nome }});
+  return await Personagem.find({ nome: {$regex: nome, $options: "i" }});
 };
 
 module.exports = {

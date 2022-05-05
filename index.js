@@ -14,6 +14,4 @@ app.use(cors());
 app.use('/characters', characterRoute);
 app.use('/users', userRoute);
 
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta :${port}`);
-});
+app.listen(port, () => { console.log(`Servidor rodando na porta :${port}`) });
