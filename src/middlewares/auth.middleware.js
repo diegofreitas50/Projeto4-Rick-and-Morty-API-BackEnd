@@ -15,7 +15,7 @@ module.exports = async (req, res, next) => {
 
     const [scheme, token] = authHeader.split(" ");
 
-    if(!/^Bearer$/i.test(scheme)) {
+    if(!/^Bearer^/i.test(scheme)) {
         return res.status(401).send({
             message: "Token malformatado!"
         })
