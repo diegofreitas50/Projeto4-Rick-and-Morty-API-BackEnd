@@ -3,19 +3,22 @@ const jwt = require('jsonwebtoken');
 const {findByIdUserService} = require('../services/users.service');
 
 module.exports = async (req, res, next) => {
+    const authHeader = req.headers.authorization;
     if (!req.headers.authorization) {
         return res.status(401).send({ message: "O token não foi informado!"})
     };
 
-    if (authHeader.split(" ") !== 2) {
+    const parts = authHeader.split(" ");
+
+    if (parts.length !== 2) {
         return res.status(401).send({
             message: "Token Inválido!"
         })
     };
 
-    const [scheme, token] = authHeader.split(" ");
+    const [scheme, token] = parts;
 
-    if(!/^Bearer^/i.test(scheme)) {
+    if(!/^Bearer$/i.test(scheme)) {
         return res.status(401).send({
             message: "Token malformatado!"
         })
@@ -25,7 +28,7 @@ module.exports = async (req, res, next) => {
         const user = await findByIdUserService(decoded.id);
         if (err || !user || !user.id) {
             return res.status(401).send({
-                message: "Token invalido!"
+                message: "Token invalido2!"
             })
         }
 

@@ -9,9 +9,9 @@ const validId = (req, res, next) => {
 };
 
 const validObjrctBody = (req, res, next) => {
-  const personagem = req.body;
+  const character = req.body;
 
-  if (!personagem || !personagem.nome || !personagem.imagem) {
+  if (!character || !character.name || !character.image) {
     return res.status(400).send({ message: 'Erro! Você não preencheu todos os campos necessários.' });
   }
   next();

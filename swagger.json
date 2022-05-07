@@ -3,7 +3,6 @@
   "info": {
     "title": "API Rick and Morty",
     "description": "API para CRUD de personagens da animação Rick and Morty",
-    "termsOfService": "",
     "contact": {
       "email": "diegofreitas50@hotmail.com"
     },
@@ -11,16 +10,119 @@
   },
   "servers": [
     {
-      "url": "https://api-rickandmorty-mod3blue.onrender.com/characters",
+      "url": "https://api-rickandmorty-mod3blue.onrender.com",
       "description": "API de produção"
     },
     {
-      "url": "http://localhost:3000/characters",
+      "url": "http://localhost:3001",
       "description": "API de teste"
     }
   ],
   "paths": {
-    "/create": {
+    "/users": {
+      "get": {
+        "summary": "Lista de todos os usuários",
+        "description": "Rota responsável por listar todos os usuários",
+        "tags": ["Users"],        
+        "responses": {
+          "404": {
+            "description": "Not Found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/create": {
+      "post": {
+        "summary": "Cadastrar Usuário",
+        "description": "Rota responsável por cadastrar um usuário",
+        "tags": ["Users"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "Usuário": {
+                  "value": {
+                    "name": "Rick Sanche",
+                    "username": "rickexample",
+                    "email": "example@example.com",
+                    "password": "12345",
+                    "avatar": "https://rickandmortyapi.com/api/character/avatar/1.jpeg"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Realizar Login",
+        "description": "Rota responsável por logar o usuário",
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              },
+              "examples": {
+                "Usuário": {
+                  "value": {
+                    "email": "example@example.com",
+                    "password": "12345"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/characters/create": {
       "post": {
         "summary": "Cadastrar um personagem",
         "description": "Rota responsável por cadastrar um personagem",
@@ -34,8 +136,8 @@
               "examples": {
                 "Paletas": {
                   "value": {
-                    "nome": "Rick",
-                    "imagem": "https://rickandmortyapi.com/api/character/avatar/292.jpeg"
+                    "name": "Rick",
+                    "image": "https://rickandmortyapi.com/api/character/avatar/292.jpeg"
                   }
                 }
               }
@@ -60,7 +162,7 @@
         }
       }
     },
-    "/": {
+    "/characters": {
       "get": {
         "summary": "Lista de todos os personagens",
         "description": "Rota responsável por listar todos os personagens",
@@ -85,7 +187,7 @@
         }
       }
     },
-    "/find/{id}": {
+    "/characters/find/{id}": {
       "get": {
         "summary": "Busca um personagem pelo ID",
         "description": "Rota responsável por buscar um personagem pelo ID",
@@ -119,7 +221,7 @@
         }
       }
     },
-    "/update/{id}": {
+    "/characters/update/{id}": {
       "put": {
         "summary": "Editar um personagem pelo ID",
         "description": "Rota responsável por editar um personagem pelo ID",
@@ -141,8 +243,8 @@
               "examples": {
                 "Paletas": {
                   "value": {
-                    "nome": "Rick",
-                    "imagem": "https://rickandmortyapi.com/api/character/avatar/292.jpeg"
+                    "name": "Rick",
+                    "image": "https://rickandmortyapi.com/api/character/avatar/292.jpeg"
                   }
                 }
               }
@@ -170,7 +272,7 @@
         }
       }
     },
-    "/delete/{id}": {
+    "/characters/delete/{id}": {
       "delete": {
         "summary": "Apagar um personagem pelo ID",
         "description": "Rota responsável por apagar um personagem pelo ID",
@@ -196,7 +298,7 @@
         }
       }
     },
-    "/search/{nome}": {
+    "/characters/search/{name}": {
       "get": {
         "summary": "Busca um personagem pelo nome",
         "description": "Rota responsável por buscar um personagem pelo nome",
@@ -233,13 +335,30 @@
   },
   "components": {
     "schemas": {
+      "User": {
+        "type":"object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
       "Personagem": {
         "type": "object",
         "properties": {
-          "nome": {
+          "name": {
             "type": "string"
           },
-          "imagem": {
+          "image": {
             "type": "string"
           }
         }
