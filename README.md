@@ -4,9 +4,11 @@
 
 API com lista de personagens criada com persistência de dados on-line por meio do MongoDB Atlas, permitindo leitura, criação, edição, busca e exclusão dos personagens através de rotas ultilizando as funções do CRUD.
 
+Criação de usuários, login, autenticação por Token usando o JsonWebToken - JWT.
+
 ## 🔧 Deploy
 
-O deploy se encontra no servidor Render e é possível acessá-lo <a href="" target="_blank">CLICANDO AQUI</a>
+O deploy se encontra no servidor Render e é possível acessá-lo <a href="https://api-rickandmorty-backand-m03.onrender.com/api-docs/" target="_blank">CLICANDO AQUI</a>
 
 ## 🛠️ Priscipais ferramentas
 
@@ -15,6 +17,7 @@ O deploy se encontra no servidor Render e é possível acessá-lo <a href="" tar
 * Express -Framework
 * MongoDB - DataBase
 * Swagger - documentation / API
+* JWT - Autenticação
 
 ## ✒️ Autores
 
