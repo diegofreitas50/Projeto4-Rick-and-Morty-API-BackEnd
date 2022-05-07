@@ -10,7 +10,7 @@ router.get('/characters', authMiddleware, charactersController.allCharactersCont
 
 router.get('/characters/find/:id', authMiddleware, validId, charactersController.characterByIdController);
 
-router.get('/characters/search/:name', authMiddleware, charactersController.searchCharacterController);
+router.get('/characters/search', authMiddleware, charactersController.searchCharacterController);
 
 router.post('/characters/create', authMiddleware, validObjrctBody, charactersController.createCharacterController);
 

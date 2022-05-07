@@ -34,7 +34,8 @@ const deleteCharacterController = async (req, res) => {
 };
 
 const searchCharacterController = async (req, res) => {
-  const searchCharacter = await charactersService.searchCharacterService(req.params.name);
+  const {name} = req.query;
+  const searchCharacter = await charactersService.searchCharacterService(name);
 
   if (searchCharacter.length == 0) {
     return res.status(404).send({ message: 'Personagem não encontrado!' });

@@ -21,8 +21,8 @@ const deleteCharacterService = async (id) => {
   return await Character.findByIdAndDelete(id);
 };
 
-const searchCharacterService = async (name) => {
-  return await Character.find({ name: {$regex: name, $options: 'i' }});
+const searchCharacterService = (name) => {
+  return Character.find({ name: {$regex: name, $options: 'i' }});
 };
 
 module.exports = {
